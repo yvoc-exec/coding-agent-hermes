@@ -5,14 +5,14 @@ description: "Autonomous coding task startup, project memory, and optional nativ
 
 # NOVA CODE Native Hermes Operations
 
-This companion applies at a new coding task, resume, handoff or delegation. Permanent policy lives **only** in `~/.hermes/profiles/coding-agent/SOUL.md`; do not rewrite it during a project task.
+This companion applies at a new coding task, resume, handoff or delegation. Permanent policy lives **only** in the active coding-agent profile's SOUL.md; do not rewrite it during a project task. Resolve PROFILE_ROOT using the active Hermes profile home, normally HERMES_HOME, and verify SOUL.md and knowledge/methodology/operating-loop.md exist beneath it. Do not assume the profile resides under the user's home directory.
 
 ## Start or resume
 
 1. Determine the **operator-selected project root** from the session working directory or explicit task; do not treat this distribution repository as the default target.
 2. Inspect current local Git branch/status and targeted source files without changing Git. Read `<project>/.coding-agent/WORKSPACE.md` if it exists; reconcile with current source and operator intent.
-3. Actually read `~/.hermes/profiles/coding-agent/knowledge/methodology/operating-loop.md`. On new Workspace or resume read `knowledge/rules/workspace.md`; before mutation/material test read `knowledge/rules/execution.md`.
-4. Trigger only relevant Domain, Capability, Tool, and specialized Methodology sources. Known absolute roots: `~/.hermes/profiles/coding-agent/knowledge/` and `~/.hermes/profiles/coding-agent/skills/coding/`. Do not flood context with the whole tree.
+3. Actually read PROFILE_ROOT/knowledge/methodology/operating-loop.md. When initializing or restoring Workspace, read PROFILE_ROOT/knowledge/rules/workspace.md. Before mutation or material testing, read PROFILE_ROOT/knowledge/rules/execution.md. Use the actual resolved filesystem paths supported by the active platform and tool.
+4. Trigger only the relevant Domain, Capability, Tool, and specialized Methodology sources. Canonical roots are PROFILE_ROOT/knowledge/ and PROFILE_ROOT/skills/coding/. Resolve them against the actual active Hermes profile, not an assumed Linux path. Do not flood context with the entire knowledge tree.
 5. Work autonomously and directly by default. Optional delegation never substitutes for your own review and integration.
 
 ## Self-contained `delegate_task` brief
@@ -28,7 +28,7 @@ Subtask: <one independent question or scoped implementation>
 Known evidence: <observations, relevant symbols/files, failing tests, without secrets>
 Allowed paths: <exact list of file paths or subtree>
 Write authority: <read-only OR explicit exclusive paths>; all other paths read-only.
-Required reads: <exact applicable knowledge/rules and native SKILL.md paths>; open actual files.
+Required reads: <exact absolute paths resolved from the parent's active PROFILE_ROOT for applicable knowledge/rules and native SKILL.md files>; open and verify the actual files. Do not infer profile paths from the child operating-system home.
 Execution constraints: non-destructive local tests only; no remote publication, deploy, secrets, package installation, production access or system changes.
 Workspace ownership: do not edit .coding-agent/WORKSPACE.md or derived-skills/; do not mutate installed Hermes profile or this distribution.
 Git: no commit/push/merge/rebase/reset/tag/branch actions; preserve existing user changes.

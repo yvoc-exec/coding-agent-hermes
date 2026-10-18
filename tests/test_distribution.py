@@ -46,6 +46,10 @@ class DistributionTests(unittest.TestCase):
         self.assertIn("skills/coding/", manifest)
         self.assertIn("knowledge/", manifest)
         self.assertIn("skin: forge", config)
+        self.assertIn(
+            'terminal:\n  backend: local\n  cwd: "."',
+            config,
+        )
         self.assertRegex(config, r"(?m)^  max_concurrent_children: 4$")
         self.assertRegex(config, r"(?m)^  max_spawn_depth: 1$")
         self.assertIn("orchestrator_enabled: false", config)
@@ -56,6 +60,37 @@ class DistributionTests(unittest.TestCase):
         self.assertIn("no mandatory delegation", soul.lower())
         self.assertIn("no Senior Advisor", soul)
         self.assertIn("`.coding-agent/WORKSPACE.md`", soul)
+
+    def test_windows_native_profile_portability(self):
+        checked = [
+            "SOUL.md",
+            "README.md",
+            "knowledge/rules/derived-skills.md",
+            "skills/coding/coding-agent/SKILL.md",
+        ]
+        for relative_path in checked:
+            with self.subTest(path=relative_path):
+                contents = (ROOT / relative_path).read_text(
+                    encoding="utf-8"
+                )
+                self.assertNotIn(
+                    "~/.hermes/profiles/coding-agent",
+                    contents,
+                )
+
+        soul = (ROOT / "SOUL.md").read_text(encoding="utf-8")
+        companion = (
+            ROOT / "skills/coding/coding-agent/SKILL.md"
+        ).read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+
+        self.assertIn("HERMES_HOME", soul)
+        self.assertIn("PROFILE_ROOT", companion)
+        self.assertIn("%LOCALAPPDATA%", readme)
+        self.assertIn(
+            "python -m unittest discover -s tests -v",
+            readme,
+        )
 
     def test_reference_security_and_scope(self):
         soul = (ROOT / "SOUL.md").read_text(encoding="utf-8")

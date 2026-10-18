@@ -5,10 +5,24 @@
 From the **distribution source root** run:
 
 ```sh
-python3 -m unittest discover -s tests -v
+python -m unittest discover -s tests -v
 ```
 
 All expected static invariants must pass. This validates documents/config references, **not** inference, native Skill discovery, actual tool calls or end-to-end correctness. Also inspect repository-local `git status --short` before and after. Do not claim tests passed unless run.
+
+### Windows-native preflight
+
+Run in PowerShell before profile installation:
+
+```powershell
+Get-Command hermes
+hermes --version
+python --version
+```
+
+After operator-authorized profile installation, verify the installed profile root, SOUL.md, knowledge tree, and Skills using the effective Hermes profile location. Check that Git Bash terminal execution correctly handles an authorized Windows project path containing spaces.
+
+A documented path or successful static test does not prove runtime knowledge retrieval. Record actual tool reads and failures in the live acceptance evidence.
 
 ## Native profile installation (operator-owned mutation)
 

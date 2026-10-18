@@ -4,7 +4,7 @@ A portable **autonomous coding agent** built as a Hermes profile distribution. T
 
 ## Runtime and isolation
 
-- Distribution profile: `coding-agent`, installed under `~/.hermes/profiles/coding-agent/`.
+- Distribution profile: coding-agent. The installed profile lives beneath the effective Hermes profile home. Standard native Windows installations use %LOCALAPPDATA%\hermes\profiles\coding-agent unless HERMES_HOME is customized. Resolve the actual location instead of assuming a POSIX home directory.
 - The active operator-selected Hermes model is the main coding agent. The packaged auxiliary delegation default is `ollama-cloud / deepseek-v4.1-flash`, high reasoning; change via Hermes native configuration and your own credentials. A configured model is not proof of working inference.
 - Project-specific memory: `<project-root>/.coding-agent/WORKSPACE.md`, artifacts, and validated Derived Skills. Profile `knowledge/` and native `skills/coding/` are permanent read-only references during ordinary coding tasks.
 - Launch from the **target source repository's root**. Do not launch from this distribution checkout when intending to edit a different project.
@@ -14,14 +14,57 @@ A portable **autonomous coding agent** built as a Hermes profile distribution. T
 
 Hermes >= 0.21.6, Git, and a configured native Hermes inference provider. Hermes TUI may require Node.js 20+. Python 3.10+ is needed only for the shipped standalone offline structure tests. Never install prerequisites as a side effect of this distribution.
 
-## Install from local checkout (before any remote publishing)
+## Native Windows 11 deployment
 
-```sh
-cd /path/to/coding-agent-hermes
-python3 -m unittest discover -s tests -v
+NOVA CODE's primary deployment target is native Windows 11, independent of WSL2 Kali.
+
+Verify the existing Windows Hermes CLI from PowerShell:
+
+```powershell
+Get-Command hermes
+hermes --version
+python --version
+```
+
+Python 3.10+ is needed for the standalone offline tests. Run them from the distribution checkout:
+
+```powershell
+Set-Location "E:\My Projects\AI\coding-agent-hermes"
+python -m unittest discover -s tests -v
+```
+
+After explicit operator approval, install the named profile:
+
+```powershell
 hermes profile install .
 hermes profile info coding-agent
+hermes -p coding-agent config get delegation
 ```
+
+Determine the standard expected native profile location, accounting for a customized Hermes home:
+
+```powershell
+$base = if ($env:HERMES_HOME) {
+    $env:HERMES_HOME
+} else {
+    Join-Path $env:LOCALAPPDATA "hermes"
+}
+
+$profilePath = Join-Path $base "profiles\coding-agent"
+Write-Output $profilePath
+Test-Path (Join-Path $profilePath "SOUL.md")
+Test-Path (Join-Path $profilePath "knowledge\methodology\operating-loop.md")
+```
+
+Both path checks must be true for this expected layout. If they are false, locate the effective profile through native Hermes profile information before proceeding; do not move, recreate, or overwrite profile files to make a guessed path work.
+
+Launch the agent from the root of the coding project being worked on, not from the distribution repository:
+
+```powershell
+hermes -p coding-agent chat
+```
+
+The Windows Coding Agent and WSL2 Kali Pentest Agent are independent Hermes environments. No additional gateway, dashboard, or WSL installation is required by this distribution.
 
 ## Install from the public repository after operator-controlled publication
 

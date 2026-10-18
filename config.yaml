@@ -1,6 +1,10 @@
 agent:
   reasoning_effort: high
 
+terminal:
+  backend: local
+  cwd: "."
+
 display:
   show_reasoning: false
   interface: tui
