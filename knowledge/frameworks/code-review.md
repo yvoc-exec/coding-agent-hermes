@@ -1,0 +1,3 @@
+# Code Review Framework
+
+Review independently against the requested behavior and original baseline. Inspect interface contracts, null/empty/error cases, concurrency, cancellation, resource ownership, persistence, security boundaries, migration effects and regression tests. Track each claim to the actual modified line and affected caller. Classify actionable findings by demonstrated likelihood/impact; say no findings only within inspected scope, not as proof of global correctness. Distinguish blocker, correctness, reliability, security, maintainability and style. Never approve solely because tests exited zero.

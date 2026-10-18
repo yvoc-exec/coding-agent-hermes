@@ -1,0 +1,64 @@
+# NOVA CODE: Coding Agent for Native Hermes
+
+A portable **autonomous coding agent** built as a Hermes profile distribution. The agent directly reads, edits, debugs, tests, and reviews authorized codebases. It may optionally use **up to four concurrent native leaf subagents** (depth 1) for independent work. No Brain-and-Hands protocol, separate Advisor, custom model router, Kanban, scheduled learning daemon, or proprietary fork of Hermes.
+
+## Runtime and isolation
+
+- Distribution profile: `coding-agent`, installed under `~/.hermes/profiles/coding-agent/`.
+- The active operator-selected Hermes model is the main coding agent. The packaged auxiliary delegation default is `ollama-cloud / deepseek-v4.1-flash`, high reasoning; change via Hermes native configuration and your own credentials. A configured model is not proof of working inference.
+- Project-specific memory: `<project-root>/.coding-agent/WORKSPACE.md`, artifacts, and validated Derived Skills. Profile `knowledge/` and native `skills/coding/` are permanent read-only references during ordinary coding tasks.
+- Launch from the **target source repository's root**. Do not launch from this distribution checkout when intending to edit a different project.
+- Git publication, profile updates, production deployments, destructive operations, and changing authentication are never automatic.
+
+## Requirements
+
+Hermes >= 0.21.6, Git, and a configured native Hermes inference provider. Hermes TUI may require Node.js 20+. Python 3.10+ is needed only for the shipped standalone offline structure tests. Never install prerequisites as a side effect of this distribution.
+
+## Install from local checkout (before any remote publishing)
+
+```sh
+cd /path/to/coding-agent-hermes
+python3 -m unittest discover -s tests -v
+hermes profile install .
+hermes profile info coding-agent
+```
+
+## Install from the public repository after operator-controlled publication
+
+```sh
+hermes profile install https://github.com/yvoc-exec/coding-agent-hermes.git
+hermes profile info coding-agent
+```
+
+Use native Hermes model setup/auth before a live session. From an unrelated **actual coding project root**:
+
+```sh
+hermes -p coding-agent chat
+```
+
+`hermes profile update coding-agent` is explicitly operator-initiated. Avoid `--force-config`, which can overwrite the operator's model settings. Bare `hermes` remains your general agent, and `pentest-agent` remains independent.
+
+## Verify delegated model route and runtime
+
+```sh
+hermes -p coding-agent config get delegation
+hermes -p coding-agent config get model
+```
+
+The second command may show an unset/default model because main-agent selection is controlled by the active Hermes session. Local config inspection cannot prove successful model inference or live delegation; exercise the acceptance scenarios in `tests/ACCEPTANCE.md` with a scratch codebase to prove runtime behavior.
+
+## Permanent source ownership
+
+- `SOUL.md`: one canonical coding contract.
+- `skills/coding/coding-agent/SKILL.md`: startup, source-selection, and self-contained child briefs.
+- `skills/coding/capabilities/*/SKILL.md`: focused task-specific expertise.
+- `skills/coding/tools/*/SKILL.md`: tool reliability and safety semantics.
+- `knowledge/frameworks/`, `methodology/`, `domains/`, `rules/`: decision guidance, progressively loaded.
+- `skins/forge.yaml`: presentation only; no model or execution authority.
+- `tests/`: offline distribution invariants and manual live acceptance scenarios.
+
+Each working project can maintain `.coding-agent/`; add it to that project's `.gitignore` only with operator approval. The root `.gitignore` in this distribution does not modify other projects.
+
+## Scope of v1
+
+Strong general-purpose software engineering: codebase archaeology, control/data-flow tracing, bug reproduction/root-cause work, implementation, API/client compatibility, tests, code review, refactors, databases/migrations, concurrency, security, performance, frontend/backend, containers/CI, and AI-agent boundaries. Knowledge is selected for actual triggers; not all documents are loaded on every task. Final correctness depends on the chosen model, tools, repository context, permissions, and real test evidence, not documentation count.

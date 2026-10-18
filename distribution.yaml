@@ -1,0 +1,11 @@
+name: coding-agent
+version: 1.0.0
+description: "NOVA Coding Agent: autonomous software engineer on native Hermes"
+hermes_requires: ">=0.21.6"
+distribution_owned:
+  - SOUL.md
+  - config.yaml
+  - distribution.yaml
+  - skins/forge.yaml
+  - skills/coding/
+  - knowledge/

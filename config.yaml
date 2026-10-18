@@ -1,0 +1,33 @@
+agent:
+  reasoning_effort: high
+
+display:
+  show_reasoning: false
+  interface: tui
+  skin: forge
+  details_mode: collapsed
+  sections:
+    thinking: hidden
+    tools: expanded
+    subagents: collapsed
+    activity: hidden
+  mouse_tracking: buttons
+  tui_status_indicator: unicode
+
+delegation:
+  max_concurrent_children: 4
+  max_spawn_depth: 1
+  orchestrator_enabled: false
+  provider: "ollama-cloud"
+  model: "deepseek-v4.1-flash"
+  reasoning_effort: high
+  fallback_providers: []
+
+curator:
+  enabled: false
+
+auxiliary:
+  background_review:
+    enabled: false
+
+context_file_max_chars: 60000

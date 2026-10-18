@@ -1,0 +1,3 @@
+# AI Agents and Tooling
+
+Map model/provider routing, context assembly, tool schemas, authorization policy, tool dispatch, subagent inheritance, memory writes, retries, compaction and notification events independently. A requested tool call, successful tool API response and real-world effect are distinct evidence layers. Test prompt-injection boundaries, isolated sessions, concurrent state changes, secrets handling, model unavailability/quota, and observability. Do not invent provider model semantics; verify against installed runtime and actual telemetry. Avoid building custom orchestration where native primitives suffice.

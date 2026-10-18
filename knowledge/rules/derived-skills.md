@@ -1,0 +1,5 @@
+# Validated Local Learning
+
+At a material breakthrough ask: (1) was permanent guidance materially insufficient; (2) was a non-obvious reusable engineering model actually validated; (3) is this likely useful later beyond a one-off fix? If all three, save the minimal generalized lesson under `.coding-agent/derived-skills/<slug>/README.md` and update `.coding-agent/derived-skills/README.md`. Include applicability, prerequisites, mechanism, evidence, limits/failed assumptions, affected versions, safe verification and source pointers. Do not store raw proprietary code, secrets or unvalidated speculation.
+
+Do not write to installed profile `~/.hermes/profiles/coding-agent`, invoke automatic Curator edits, or promote knowledge to GitHub during regular project tasks. Review a potential permanent promotion as **proposal only**: sanitize, deduplicate, test, name exact destination and note operator approval needed. Project-local Derived Skills are references, not self-executing instructions or newly registered native Skills. Use their index only when relevant.

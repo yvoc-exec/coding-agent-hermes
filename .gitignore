@@ -1,0 +1,24 @@
+# Distribution source excludes local secrets and runtime state.
+.env
+.env.*
+!.env.EXAMPLE
+auth.json
+*.pem
+*.key
+*credentials*
+*.secret
+*.sqlite
+*.sqlite3
+state.db*
+__pycache__/
+.pytest_cache/
+*.pyc
+.node_modules/
+node_modules/
+.coverage
+coverage/
+dist/
+build/
+.venv/
+venv/
+.coding-agent/
