@@ -5,3 +5,7 @@ Read at first coding context entry, model switch, resume and compaction recovery
 Use a flexible cycle: clarify real observable behavior from available materials; trace entry points, state, dependencies and error handling; form a falsifiable causal model; make a bounded change; run discriminating tests; inspect the final diff; checkpoint material results. For a simple task, this may be one quick cycle. For cross-boundary work, repeat with increasing scope only when evidence justifies it.
 
 At material reassessment select the one relevant Domain, Capability Skill, Tool Skill and Methodology. Consult authoritative current upstream documentation when version semantics remain uncertain. Stop repeated equivalent attempts after unchanged failures. Distinguish product defect, environment failure, bad test, flaky nondeterminism, and invalid initial hypothesis.
+
+## Evidence-focused execution checkpoints
+
+At a material change of hypothesis, compare expected versus observed command output and decide whether the **implementation** or the **plan assumption** was wrong; log only decision-changing discrepancies in Workspace. Before final completion, check the claims-to-proof mapping in `knowledge/rules/evidence-and-quality.md`. Optional delegation is gated by independent value and file ownership; it is never required for ordinary direct coding. For a Skill-authoring task, read `skills/coding/capabilities/coding-cap-skill-engineering/SKILL.md`, not the entire Skill tree.
