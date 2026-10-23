@@ -1,67 +1,76 @@
 name: forge
-description: "NOVA CODE | Graphite terminal theme"
+description: "NOVA CODE | Graphite and muted jade engineering terminal"
+
 colors:
-  background: "#0B0F16"
-  ui_primary: "#B7C3D0"
-  ui_text: "#D6DEE8"
-  ui_border: "#55687C"
-  ui_accent: "#7B95AF"
-  ui_label: "#9EADBC"
-  ui_tool: "#89A7BF"
-  ui_thinking: "#82909F"
-  ui_ok: "#86A88B"
-  ui_error: "#CB7D81"
-  ui_warn: "#C4A06D"
-  banner_border: "#5A7187"
-  banner_title: "#CAD4DE"
-  banner_accent: "#849EB5"
-  banner_dim: "#8797A8"
-  banner_text: "#C8D2DC"
-  prompt: "#ACBED0"
-  input_rule: "#55687C"
-  response_border: "#758DA2"
-  session_label: "#A4B3C1"
-  session_border: "#55687C"
-  shell_dollar: "#8CA5BD"
-  status_bar_bg: "#131B26"
-  status_bar_text: "#CBD5DF"
-  status_bar_strong: "#BDC9D5"
-  status_bar_dim: "#8492A0"
-  status_bar_good: "#8FAE94"
-  status_bar_warn: "#D0A775"
-  status_bar_bad: "#C78E75"
-  status_bar_critical: "#C8777B"
-  voice_status_bg: "#131B26"
-  selection_bg: "#243449"
-  completion_menu_bg: "#131B26"
-  completion_menu_current_bg: "#243449"
-  completion_menu_meta_bg: "#131B26"
-  completion_menu_meta_current_bg: "#243449"
-  syntax_string: "#98B49E"
-  syntax_number: "#C7B08B"
-  syntax_keyword: "#A4B5C5"
-  syntax_comment: "#82909F"
-  diff_added: "#20352B"
-  diff_removed: "#3B282C"
-  diff_added_word: "#C4E0CF"
-  diff_removed_word: "#F0C2C4"
+  background: "#101719"
+  ui_primary: "#C6D6D0"
+  ui_text: "#DFE9E4"
+  ui_border: "#435A55"
+  ui_accent: "#87BAA7"
+  ui_label: "#9CAFA8"
+  ui_tool: "#96C4B3"
+  ui_thinking: "#84968F"
+  ui_ok: "#86BD9B"
+  ui_error: "#D39392"
+  ui_warn: "#D3B27E"
+
+  banner_border: "#47645A"
+  banner_title: "#D5E4DC"
+  banner_accent: "#8FC6B0"
+  banner_dim: "#889E94"
+  banner_text: "#C9DCD3"
+
+  prompt: "#A9D4BF"
+  input_rule: "#4B665D"
+  response_border: "#628678"
+  session_label: "#B0C5B9"
+  session_border: "#435A55"
+  shell_dollar: "#88B7A6"
+
+  status_bar_bg: "#192422"
+  status_bar_text: "#DAE6DF"
+  status_bar_strong: "#F0F6F0"
+  status_bar_dim: "#96ADA3"
+  status_bar_good: "#98C8A9"
+  status_bar_warn: "#DFBF88"
+  status_bar_bad: "#D7A28A"
+  status_bar_critical: "#D5898D"
+
+  voice_status_bg: "#192422"
+  selection_bg: "#2A4238"
+  completion_menu_bg: "#192422"
+  completion_menu_current_bg: "#2A4238"
+  completion_menu_meta_bg: "#192422"
+  completion_menu_meta_current_bg: "#2A4238"
+
+  syntax_string: "#B2D5BB"
+  syntax_number: "#D8BE92"
+  syntax_keyword: "#9CBED6"
+  syntax_comment: "#8BA69A"
+
+  diff_added: "#203C2E"
+  diff_removed: "#402A2D"
+  diff_added_word: "#D8F6E0"
+  diff_removed_word: "#FAD8D6"
+
 spinner:
   waiting_faces:
-    - "◈"
-    - "◇"
-    - "✦"
+    - "⌁"
+    - "⌇"
+    - "⌁"
   thinking_faces:
-    - "✧"
-    - "✦"
-    - "◈"
+    - "◦"
+    - "•"
+    - "◦"
   thinking_verbs:
-    - "tracing code"
-    - "testing assumptions"
-    - "isolating root cause"
-    - "verifying behavior"
+    - "mapping call paths"
+    - "tracing execution"
+    - "checking invariants"
+    - "reviewing changes"
   wings:
-    - ["⟪◈", "◈⟫"]
-    - ["⟪✦", "✦⟫"]
+    - ["⟦", "⟧"]
+    - ["〈", "〉"]
+
 branding:
   agent_name: "NOVA CODE"
   welcome: "NOVA CODE online. Engineering workspace ready."
@@ -69,15 +78,19 @@ branding:
   response_label: " NOVA CODE "
   prompt_symbol: "❯"
   help_header: "NOVA CODE | Commands"
-tool_prefix: "▏"
+
+tool_prefix: "│"
+
 tool_emojis:
   terminal: "⌘"
   web_search: "◎"
   read_file: "▤"
+
 banner_logo: |
-  [bold #CAD4DE]NOVA[/] [#849EB5]CODE[/]
+  [bold #D5E4DC]NOVA[/] [#8FC6B0]CODE[/]
+
 banner_hero: |
-  [#5A7187]  ────────◇────────[/]
-  [bold #CAD4DE]     ◈ NOVA CODE ◈[/]
-  [#9EADBC]     AUTONOMOUS ENGINEER[/]
-  [#5A7187]  ────────◇────────[/]
+  [#47645A]  ────────┬────────[/]
+  [bold #D5E4DC]     NOVA / CODE[/]
+  [#9CAFA8]     ENGINEERING[/]
+  [#47645A]  ────────┴────────[/]

@@ -5,6 +5,8 @@ terminal:
   backend: local
   cwd: "."
 
+# Clean, low-noise TUI layout shared with the Pentest Agent.
+# Keep operational tool output visible while collapsing secondary activity.
 display:
   show_reasoning: false
   interface: tui

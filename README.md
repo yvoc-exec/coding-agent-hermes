@@ -14,6 +14,37 @@ A portable **autonomous coding agent** built as a Hermes profile distribution. T
 
 Hermes >= 0.21.6, Git, and a configured native Hermes inference provider. Hermes TUI may require Node.js 20+. Python 3.10+ is needed only for the shipped standalone offline structure tests. Never install prerequisites as a side effect of this distribution.
 
+## Clean TUI and dedicated Forge skin
+
+NOVA CODE uses the same low-noise Hermes TUI visibility policy as
+the Pentest Agent, but a distinct graphite-and-muted-jade visual theme.
+
+The distribution's `config.yaml` selects `display.skin: forge`.
+The theme is defined entirely in `skins/forge.yaml` and does not
+change inference, delegation, terminal execution, or tool permissions.
+
+The display defaults hide reasoning and background activity, keep
+tools expanded, collapse subagent details, and retain the Unicode
+status indicator.
+
+The `forge` filename is retained for compatibility with existing
+coding-agent profiles. It is independent from the Pentest Agent's
+`nova` skin.
+
+For an already installed profile, normal profile updates may preserve
+operator-customized configuration. Avoid `--force-config` unless
+intentionally replacing those settings.
+
+Check the effective setting with:
+
+```powershell
+hermes -p coding-agent config get display
+```
+
+After a distribution refresh, the selected skin should be `forge`.
+If the operator has explicitly customized the selected skin, preserve
+that preference rather than silently overriding it.
+
 ## Native Windows 11 deployment
 
 NOVA CODE's primary deployment target is native Windows 11, independent of WSL2 Kali.
