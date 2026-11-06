@@ -127,6 +127,7 @@ The second command may show an unset/default model because main-agent selection 
 - `skills/coding/coding-agent/SKILL.md`: startup, source-selection, and self-contained child briefs.
 - `skills/coding/capabilities/*/SKILL.md`: focused task-specific expertise.
 - `skills/coding/tools/*/SKILL.md`: tool reliability and safety semantics.
+- `skills/coding/popular-web-designs/`: MIT-licensed visual design reference skill with 54 site-specific Markdown templates. Imported unchanged from [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent/tree/90d6b98fd86d20981ee06ddd5b7d93e4320f26a4/skills/creative/popular-web-designs). Companion skills named within it, such as `claude-design` and `generative-widgets`, are optional and are not included in this distribution.
 - `knowledge/frameworks/`, `methodology/`, `domains/`, `rules/`: decision guidance, progressively loaded.
 - `skins/forge.yaml`: presentation only; no model or execution authority.
 - `tests/`: offline distribution invariants and manual live acceptance scenarios.

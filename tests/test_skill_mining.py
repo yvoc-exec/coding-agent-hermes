@@ -33,7 +33,7 @@ class MinedSkillTests(unittest.TestCase):
             names.append(match.group(1))
             self.assertIn('description:', fm)
         self.assertEqual(len(names), len(set(names)))
-        self.assertEqual(len(names), 22)
+        self.assertEqual(len(names), 23)
 
     def test_root_cause_and_regression_evidence(self):
         bug = (ROOT / 'skills/coding/capabilities/coding-cap-bugfix-debugging/SKILL.md').read_text()
