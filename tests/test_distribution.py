@@ -53,6 +53,7 @@ class DistributionTests(unittest.TestCase):
         self.assertRegex(config, r"(?m)^  max_concurrent_children: 4$")
         self.assertRegex(config, r"(?m)^  max_spawn_depth: 1$")
         self.assertIn("orchestrator_enabled: false", config)
+        self.assertIn('  provider: "opencode-go"\n  model: "deepseek-v4.1-flash"', config)
         self.assertIn("fallback_providers: []", config)
         self.assertNotRegex(config, r"(?m)^model:\s*$")
         self.assertIn("curator:\n  enabled: false", config)
