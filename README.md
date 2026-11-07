@@ -5,7 +5,7 @@ A portable **autonomous coding agent** built as a Hermes profile distribution. T
 ## Runtime and isolation
 
 - Distribution profile: coding-agent. The installed profile lives beneath the effective Hermes profile home. Standard native Windows installations use %LOCALAPPDATA%\hermes\profiles\coding-agent unless HERMES_HOME is customized. Resolve the actual location instead of assuming a POSIX home directory.
-- The active operator-selected Hermes model is the main coding agent. The packaged auxiliary delegation default is `ollama-cloud / deepseek-v4.1-flash`, high reasoning; change via Hermes native configuration and your own credentials. A configured model is not proof of working inference.
+- The active operator-selected Hermes model is the main coding agent. The packaged auxiliary delegation default is `opencode-go / deepseek-v4.1-flash`, high reasoning; change via Hermes native configuration and your own credentials. A configured model is not proof of working inference.
 - Project-specific memory: `<project-root>/.coding-agent/WORKSPACE.md`, artifacts, and validated Derived Skills. Profile `knowledge/` and native `skills/coding/` are permanent read-only references during ordinary coding tasks.
 - Launch from the **target source repository's root**. Do not launch from this distribution checkout when intending to edit a different project.
 - Git publication, profile updates, production deployments, destructive operations, and changing authentication are never automatic.
